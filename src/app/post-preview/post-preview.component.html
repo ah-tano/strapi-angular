@@ -1,0 +1,6 @@
+<article class="post">
+  <img [src]="post()?.imageSrc">
+  <h5 class="post-header">{{ post()?.title }}</h5>
+  <p class="post-description">{{ post()?.content }}</p>
+  <a class="post-button" mat-flat-button [routerLink]="'/posts/'+ post()!.post.documentId">Learn More</a>
+</article>

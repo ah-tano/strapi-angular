@@ -1,0 +1,35 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  height: 400px;
+  width: 250px;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+
+  img {
+    height: 135px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-header {
+  font-size: 16px;
+  color: #a800e0;
+}
+
+.post-button {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.post-description {
+  flex: 1;
+  width:100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}

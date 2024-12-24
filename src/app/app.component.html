@@ -1,0 +1,43 @@
+@if(globalData) {
+  <article class="page-container">
+    <section class="header">
+      <div class="logo">
+        <a class="logo-link" [href]="globalData.topNavigation.logo.href">
+          @if (globalData.topNavigation.logo.imageSrc) {
+            <img [src]="globalData.topNavigation.logo.imageSrc">
+          }
+          <p>{{ globalData.topNavigation.logo.label }}</p>
+        </a>
+      </div>
+
+      <nav class="nav">
+        @for (navItem of globalData.topNavigation.navItems; track $index) {
+          @if (navItem.isExternal) {
+            <a class="nav-item" mat-button [href]="navItem.href" target="_blank"> {{ navItem.label }} </a>
+          } @else {
+            <a class="nav-item" mat-button [routerLink]="navItem.href"> {{ navItem.label }} </a>
+          }
+        }
+      </nav>
+
+      <div class="cta">
+        <a mat-flat-button [href]="globalData.topNavigation.cta.href">{{ globalData.topNavigation.cta.label }}</a>
+      </div>
+    </section>
+
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+
+    <section class="footer">
+      <p class="footer-description"> {{ globalData.footer.text }} </p>
+      <div class="footer-icons">
+        @for (icon of globalData.footer.link; track $index) {
+          <a class="footer-icon-link" [href]="icon.href">
+            <mat-icon [fontIcon]="icon.materialName"></mat-icon>
+          </a>
+        }
+      </div>
+    </section>
+  </article>
+}

@@ -1,0 +1,41 @@
+<article class="landing">
+  @if (hero) {
+    <section class="hero-section">
+      <ng-container *ngTemplateOutlet="heroTmpl; context: { $implicit: hero }"></ng-container>
+    </section>
+  }
+  @if (posts) {
+    <section class="posts-section">
+      <ng-container *ngTemplateOutlet="postsTmpl; context: { $implicit: posts }"></ng-container>
+    </section>
+  }
+</article>
+
+<ng-template #heroTmpl let-hero>
+  <div class="left-column">
+    <div class="subheading">{{ hero.subHeading }}</div>
+    <h1 class="heading">{{ hero.heading }}</h1>
+    <p class="description">{{ hero.text }}</p>
+    <div class="actions">
+      @for (link of hero.links; track $index) {
+        <button class="hero-button" mat-stroked-button [routerLink]="link.href">{{ link.label }}</button>
+      }
+    </div>
+  </div>
+  <div class="right-column">
+    <img class="landing-img" [src]="hero.imageSrc">
+  </div>
+</ng-template>
+
+<ng-template #postsTmpl let-posts>
+  <div class="subheading posts-section-subheading">{{ posts.subHeading }}</div>
+  <h2 class="heading posts-section-heading">{{ posts.heading }}</h2>
+  <p class="description">{{ posts.text }}</p>
+  <div class="posts">
+    @for (post of posts.posts; track $index) {
+      <app-post-preview [post]="post"></app-post-preview>
+    }
+  </div>
+</ng-template>
+
+

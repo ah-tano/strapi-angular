@@ -1,0 +1,10 @@
+<article class="myths">
+  <div class="header">
+    <h1 class="title">Create Your Own God</h1>
+    <button mat-flat-button (click)="save()">Save</button>
+  </div>
+  <div class="NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+    <ngx-editor [editor]="editor" [(ngModel)]="html" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+  </div>
+</article>
