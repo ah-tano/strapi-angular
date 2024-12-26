@@ -21,6 +21,14 @@
       </nav>
 
       <div class="cta">
+        <div class="lang-menu">
+          <button mat-button [matMenuTriggerFor]="menu">{{ lang }}</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="changeLanguage('Eng')">Eng</button>
+            <button mat-menu-item (click)="changeLanguage('Укр')">Укр</button>
+          </mat-menu>
+        </div>
+
         <a mat-flat-button [href]="globalData.topNavigation.cta.href">{{ globalData.topNavigation.cta.label }}</a>
       </div>
     </section>

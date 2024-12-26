@@ -37,3 +37,13 @@
 .cta a[mat-flat-button] {
   text-decoration: none;
 }
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lang-menu {
+  margin-right: 20px;
+}
